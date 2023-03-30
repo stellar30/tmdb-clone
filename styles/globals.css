@@ -1,4 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
+  --dark-blue: #0d253f;
+  --light-blue: #01b4e4;
+  --light-green: #90cea1;
+
+  --color-primary: #1c1b1f;
+  --color-secondary: #79747e;
+
+  --state-success: #2ebe52;
+  --state-info: #0091ea;
+  --state-warning: #f79009;
+  --state-error: #f04438;
+  --state-success-aksen: #e1f7e6;
+  --state-info-aksen: #d6edfc;
+  --state-warning-aksen: #fdf7f0;
+  --state-error-aksen: #fceceb;
+
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -87,12 +107,6 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 a {
