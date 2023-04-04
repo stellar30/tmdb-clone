@@ -7,7 +7,7 @@ export const useQueryMovieDetail = (movie_id: string): UseQueryResult<MovieDetai
   return useQuery<any, AxiosError<{ message: string }>, any, any>(
     ['trending', movie_id],
     async () => {
-      const response = await axios.get<MovieDetailParams>(`/movie/${movie_id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
+      const response = await axios.get<MovieDetailParams>(`/movie/${movie_id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&append_to_response=videos,genres,images,credits,keywords,external_ids`)
       return response.data
     }, { enabled: !!movie_id }
   )

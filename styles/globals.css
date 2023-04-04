@@ -114,6 +114,12 @@ a {
   text-decoration: none;
 }
 
+.full-width {
+	/* position: relative; */
+  left: calc(-50vw + 50%);
+  width: 100vw;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

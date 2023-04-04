@@ -1,8 +1,13 @@
-export type MoviedetailRes = {
+export type MovieDetailParams = {
+  movie_id: string;
+}
+
+export type MovieDetailRes = {
   adult?: boolean;
   backdrop_path?: string;
   belongs_to_collection?: BelongsCollection;
-  budget?: 460000000,
+  budget?: 460000000;
+  credits?: Credits;
   genres?: Genre[];
   homepage?: string;
   id?: number;
@@ -17,13 +22,47 @@ export type MoviedetailRes = {
   release_date?: string;
   revenue?: number;
   runtime?: number;
-  spoken_languages?: SpokenLanguages[],
+  spoken_languages?: SpokenLanguages[];
   status?: string;
   tagline?: string;
   title?: string;
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
+}
+
+type Credits = {
+  crew?: Crew[]
+  cast?: Cast[]
+}
+
+export type Cast = {
+  adult?: boolean;
+  gender?: number | null;
+  id?: number;
+  known_for_department?: string;
+  name?: string;
+  original_name?: string;
+  popularity?: number;
+  profile_path?: string | null;
+  cast_id?: number;
+  character?: string;
+  credit_id?: string;
+  order?: number;
+}
+
+type Crew = {
+  adult?: boolean;
+  gender?: number | null;
+  id?: number;
+  known_for_department?: string;
+  name: string;
+  original_name?: string;
+  popularity?: number;
+  profile_path?: string | null;
+  credit_id?: string;
+  department?: string;
+  job: string;
 }
 
 type SpokenLanguages = {

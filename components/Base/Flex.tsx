@@ -11,6 +11,7 @@ interface FlexProps {
   wrap?: 'nowrap' | 'wrap';
   rounded?: 'none' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
   children: ReactNode | undefined;
+  className?: string;
 }
 
 const flexWrap = {
@@ -49,11 +50,12 @@ const flexRoundeds = {
   full: 'rounded-full',
 }
 
-const Flex = ({ dir = 'row', items = 'start', justify = 'start', rounded = 'none', wrap = 'nowrap', children }: FlexProps) => {
+const Flex = ({ dir = 'row', items = 'start', justify = 'start', rounded = 'none', wrap = 'nowrap', children, className = '' }: FlexProps) => {
   return (
     <div
       className={
         clsx('flex', [
+          !!className && className,
           !!dir && flexDir[dir],
           !!items && flexAlignItems[items],
           !!justify && flexJustify[justify],
