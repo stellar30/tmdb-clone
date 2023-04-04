@@ -24,10 +24,11 @@ const MovieDetail = () => {
           <Head content={data as MovieDetailRes} />
 
           <div className='grid grid-cols-12 mt-8'>
-            <div className='col-span-10'>
+            <div className='col-span-9'>
               <CastItems casts={data.credits?.cast as Cast[]} />
             </div>
-            <div className='col-span-2 pl-6'>
+            
+            <div className='col-span-3 pl-6 ml-4'>
               <Sidebar content={data as MovieDetailRes} />
             </div>
 

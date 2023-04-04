@@ -12,6 +12,7 @@ export type MovieDetailRes = {
   homepage?: string;
   id?: number;
   imdb_id?: string;
+  keywords?: Keywords;
   original_language?: string;
   original_title?: string;
   overview?: string;
@@ -29,6 +30,15 @@ export type MovieDetailRes = {
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
+}
+
+export type Keywords = {
+  keywords?: Keyword[]
+}
+
+type Keyword = {
+  id?: number;
+  name?:string;
 }
 
 type Credits = {

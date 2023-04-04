@@ -1,6 +1,7 @@
 import { Cast } from '@/types/Movie'
 import Link from 'next/link'
-import React from 'react'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 
 interface CastItemsProps {
   casts: Cast[]
@@ -37,11 +38,20 @@ const CastItem = ({ cast = null }: CastItemProps) => {
 }
 
 const CastItems = ({ casts }: CastItemsProps) => {
+  const [movieId, setMovieId] = useState('')
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!router.isReady) return
+
+    setMovieId(router.query.id as string)
+  }, [router.isReady])
   return (
     <div>
       <span className='text-2xl font-semibold'>Top Billed Cast</span>
 
-      <div className='overflow-auto whitespace-nowrap mt-4 space-x-6 flex flex-auto w-full h-full'>
+      <div className='overflow-auto whitespace-nowrap my-4 space-x-4 flex flex-auto w-full h-full'>
         {casts.slice(0, 9).map((item) => (
           <CastItem key={item.id} cast={item} />
         ))}
@@ -49,6 +59,12 @@ const CastItems = ({ casts }: CastItemsProps) => {
           <CastItem />
         ) : null}
       </div>
+
+      <Link href={`/movie/${movieId}/cast`}>
+        <span className='text-lg font-semibold hover:text-gray-500'>Full Cast & Crew</span>
+      </Link>
+
+      <div className='border-0 border-t-[1px] border-gray-300 my-6' />
     </div>
   )
 }
