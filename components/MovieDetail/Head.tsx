@@ -63,7 +63,7 @@ const Head = ({ content }: HeadProps) => {
     <div className='relative w-screen'>
       <img src={`https://image.tmdb.org/t/p/original${content.backdrop_path}`} alt="" className='w-screen h-[510px] object-cover object-left-top brightness-[0.4] -ml-[calc(calc(100%-68%)/2)]' />
 
-      <div className='z-50 w-[68%] h-[510px] mx-auto brightness-100 absolute top-0'>
+      <div className='z-40 w-[68%] h-[510px] mx-auto brightness-100 absolute top-0'>
         <Flex className='py-6 w-full h-full space-x-10' wrap='nowrap' justify='start' items='center'>
           <Flex items='center'>
             <img src={`https://image.tmdb.org/t/p/w300${content.poster_path}`} alt="poster" className='rounded-xl' />

@@ -65,7 +65,7 @@ const Navbar = () => {
           <Bars3Icon className='text-white w-5 h-5 cursor-pointer' onClick={() => setExpandSideBar(!expandSideBar)} />
           <div className={
             clsx(
-              'absolute top-16 left-0 bg-dark-blue w-2/3 translate-all duration-[320ms] p-6 border-0 border-t border-gray-400',
+              'absolute top-16 left-0 bg-dark-blue w-2/3 translate-all duration-[320ms] p-6 border-0 border-t border-gray-400 z-50',
               {
                 'translate-x-0': expandSideBar,
                 '-translate-x-[100%]': !expandSideBar,
