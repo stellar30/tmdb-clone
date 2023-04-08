@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <div className='w-full h-[350px] bg-gradient-to-r from-sky-900 to-sky-400 flex items-center'>
-        <div className='w-full h-[244px] px-10 py-8 flex flex-col'>
+        <div className='w-full h-[244px] px-6 py-0 lg:2xl:py-8 lg:2xl:px-10 flex flex-col'>
           <span className='text-5xl font-bold text-white'>Welcome.</span>
           <span className='text-3xl font-semibold text-white'>Millions of movies, TV shows and people to discover. Explore now.</span>
 
@@ -47,12 +47,12 @@ export default function Home() {
       </div>
       <div className='w-full min-h-[440px] mt-10'>
         <Flex items='center'>
-          <span className='pl-10 text-2xl font-semibold mr-4'>Trending</span>
+          <span className='pl-6 lg:2xl:pl-10 text-2xl font-semibold mr-4'>Trending</span>
           <TrendingTab handleTrending={handleTrending} />
         </Flex>
 
         <div className='w-full mt-6 bg-[url("/assets/svg/trending-bg.svg")] bg-bottom bg-no-repeat'>
-          <div className='overflow-auto whitespace-nowrap space-x-6 px-10 w-full h-fit'>
+          <div className='overflow-auto whitespace-nowrap space-x-6 px-6 lg:2xl:px-10 w-full h-fit'>
             {isFetched && data?.results?.map((item) => (
               <Item key={item.id} content={item} />
             ))}

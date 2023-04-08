@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import React from 'react'
-import { FaBell } from "react-icons/fa";
+import React, { useState } from 'react'
+import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import NavItem from './NavItem'
+import Flex from '../Base/Flex';
+import clsx from 'clsx';
 
 const movieOptions = {
   title: 'Movies',
@@ -41,10 +43,11 @@ const MoreOptions = {
 }
 
 const Navbar = () => {
+  const [expandSideBar, setExpandSideBar] = useState(false)
   return (
     <div className='h-16 bg-dark-blue flex items-center sticky top-0'>
-      <div className='w-2/3 mx-auto px-6 flex items-center justify-between'>
-        <div className='space-x-8 flex items-center'>
+      <div className='w-full lg:2xl:w-2/3 mx-auto px-6 flex items-center justify-between'>
+        <div className='space-x-8 items-center hidden lg:2xl:flex'>
           <Link href='/'>
             <img src="/assets/svg/tmdb.svg" alt="logo tmdb" width="154" height="20" />
           </Link>
@@ -58,8 +61,23 @@ const Navbar = () => {
           <NavItem menu={MoreOptions} />
         </div>
 
+        <Flex className='flex lg:2xl:hidden overflow-x-hidden'>
+          <Bars3Icon className='text-white w-5 h-5 cursor-pointer' onClick={() => setExpandSideBar(!expandSideBar)} />
+          <div className={
+            clsx(
+              'absolute top-16 left-0 bg-dark-blue w-2/3 translate-all duration-[320ms] p-6 border-0 border-t border-gray-400',
+              {
+                'translate-x-0': expandSideBar,
+                '-translate-x-[100%]': !expandSideBar,
+              }
+            )
+          }>
+            <span className='text-white'>asdweqwe</span>
+          </div>
+        </Flex>
+
         <div className='flex items-center space-x-8'>
-          <FaBell className='text-white w-5 h-5' />
+          <BellIcon className='text-white w-5 h-5' />
 
           <div className='w-9 h-9 rounded-full bg-slate-500 flex justify-center items-center cursor-pointer'>
             <span className='text-lg font-medium text-white'>W</span>
