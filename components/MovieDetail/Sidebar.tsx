@@ -33,7 +33,7 @@ const Sidebar = ({ content }: SidebarProps) => {
         <span className='text-[17px] font-semibold block'>Keywords</span>
         <Flex dir='row' wrap='wrap'>
           {content.keywords?.keywords?.map((item) => (
-            <Link href={`/keywords/${item.id}`}>
+            <Link href={`/keywords/${item.id}`} key={item.id}>
               <div className='mr-1 mb-2 px-2 py-1 rounded bg-gray-300 flex items-center cursor-pointer'>
                 <span className='text-sm'>{item.name}</span>
               </div>

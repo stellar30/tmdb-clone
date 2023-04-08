@@ -22,6 +22,7 @@ export type MovieDetailRes = {
   production_countries?: ProductionCountries[];
   release_date?: string;
   revenue?: number;
+  reviews?: Reviews;
   runtime?: number;
   spoken_languages?: SpokenLanguages[];
   status?: string;
@@ -32,13 +33,37 @@ export type MovieDetailRes = {
   vote_count?: number;
 }
 
+export type Reviews = {
+  page?: number;
+  results?: Review[]
+  total_pages?: number;
+  total_results?: number;
+}
+
+type Review = {
+  author?: string;
+  author_details?: AuthorDetails;
+  content?: string;
+  created_at?: string;
+  id?: string;
+  updated_at?: string;
+  url?: string;
+}
+
+type AuthorDetails = {
+  name?: string;
+  username?: string;
+  avatar_path?: string | null;
+  rating?: integer | null;
+}
+
 export type Keywords = {
-  keywords?: Keyword[]
+  keywords?: Keyword[];
 }
 
 type Keyword = {
   id?: number;
-  name?:string;
+  name?: string;
 }
 
 type Credits = {

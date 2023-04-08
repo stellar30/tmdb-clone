@@ -5,7 +5,7 @@ import React, { PropsWithChildren } from 'react'
 const Layout = ({ children }: PropsWithChildren) => {
   return (
     <>
-      <div className='h-full min-h-screen overflow-hidden'>
+      <div className='h-full min-h-screen overflow-x-hidden'>
         <Navbar />
         <main className='w-[69%] mx-auto'>
           {children}

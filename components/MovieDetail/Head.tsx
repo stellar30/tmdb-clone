@@ -14,6 +14,7 @@ interface FilterCrew {
 }
 
 const Head = ({ content }: HeadProps) => {
+  const [crew, setCrew] = useState<FilterCrew[]>([])
   const [duration, setDuration] = useState({
     hours: '',
     minutes: ''
@@ -21,7 +22,7 @@ const Head = ({ content }: HeadProps) => {
 
   const filterCrewBy = ['Director', 'Screenplay', 'Story', 'Characters', 'Writer']
 
-  const filterCrew = () => {
+  const filterCrew = (): any => {
     if (!content?.credits?.crew) return
     const filtered = content?.credits?.crew.filter((item: Crew) => filterCrewBy.includes(item.job as string))
 
@@ -34,7 +35,6 @@ const Head = ({ content }: HeadProps) => {
       }
       return acc;
     }, {} as Record<string, FilterCrew>)
-    console.log(Object.values(mergingName).sort((a: any, b: any) => b.jobs.length - a.jobs.length))
 
     return Object.values(mergingName).sort((a: any, b: any) => b.jobs.length - a.jobs.length)
   }
@@ -46,6 +46,18 @@ const Head = ({ content }: HeadProps) => {
 
     setDuration(() => ({ hours, minutes }))
   }, [content.runtime])
+
+  useEffect(() => {
+    if (!content?.credits?.crew) return
+
+    const mergeCrew = async () => {
+      const mergedCrew = await filterCrew()
+      setCrew(mergedCrew)
+    }
+
+    mergeCrew()
+      .catch(console.error)
+  }, [content?.credits?.crew])
 
   return (
     <div className='relative w-screen'>
@@ -70,8 +82,8 @@ const Head = ({ content }: HeadProps) => {
             <span className='text-base text-white font-normal'>{content.overview}</span>
 
             <div className='mt-6 w-full grid grid-cols-3 gap-x-24'>
-              {filterCrew()?.map((item: any) => (
-                <Flex className='mb-6' dir='column' key={item.id}>
+              {crew && crew?.map((item: any, i: number) => (
+                <Flex className='mb-6' dir='column' key={i}>
                   <span className='text-white font-extrabold'>{item.name}</span>
                   <span className='text-white'>{item.jobs.join(', ')}</span>
                 </Flex>

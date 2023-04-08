@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Head from '@/components/MovieDetail/Head'
 import CastItems from '@/components/MovieDetail/CastItems'
 import Sidebar from '@/components/MovieDetail/Sidebar'
+import Reviews from '@/components/MovieDetail/Reviews'
 
 const MovieDetail = () => {
   const router = useRouter()
@@ -26,6 +27,7 @@ const MovieDetail = () => {
           <div className='grid grid-cols-12 mt-8'>
             <div className='col-span-9'>
               <CastItems casts={data.credits?.cast as Cast[]} />
+              <Reviews reviews={data.reviews} />
             </div>
             
             <div className='col-span-3 pl-6 ml-4'>

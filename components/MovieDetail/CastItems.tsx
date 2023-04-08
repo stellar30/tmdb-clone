@@ -60,9 +60,11 @@ const CastItems = ({ casts }: CastItemsProps) => {
         ) : null}
       </div>
 
-      <Link href={`/movie/${movieId}/cast`}>
-        <span className='text-lg font-semibold hover:text-gray-500'>Full Cast & Crew</span>
-      </Link>
+      {movieId && (
+        <Link href={`/movie/${movieId}/cast`}>
+          <span className='text-lg font-semibold hover:text-gray-500'>Full Cast & Crew</span>
+        </Link>
+      )}
 
       <div className='border-0 border-t-[1px] border-gray-300 my-6' />
     </div>

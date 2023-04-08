@@ -10,7 +10,7 @@ interface TrendingProps {
 const Item = ({ content }: TrendingProps) => {
   return (
     <>
-      <div className='w-[150px] h-[225px] inline-block whitespace-nowrap'>
+      <div className='w-[150px] h-fit mb-4 inline-block whitespace-nowrap'>
         <div className=' bg-slate-600 rounded-md w-[150px] h-[225px] relative'>
           <Link href={`/${content.media_type}/${content.id}`}>
             <img src={`https://image.tmdb.org/t/p/w500${content.poster_path}`} width="150" height="225" alt="" className='rounded-md' />

@@ -45,14 +45,14 @@ export default function Home() {
         </div>
 
       </div>
-      <div className='w-full h-[440px] mt-10'>
+      <div className='w-full min-h-[440px] mt-10'>
         <Flex items='center'>
           <span className='pl-10 text-2xl font-semibold mr-4'>Trending</span>
           <TrendingTab handleTrending={handleTrending} />
         </Flex>
 
-        <div className='w-full h-[380px] mt-6 bg-[url("/assets/svg/trending-bg.svg")] bg-bottom bg-no-repeat'>
-          <div className='overflow-auto whitespace-nowrap space-x-6 px-10 flex flex-auto w-full h-full'>
+        <div className='w-full mt-6 bg-[url("/assets/svg/trending-bg.svg")] bg-bottom bg-no-repeat'>
+          <div className='overflow-auto whitespace-nowrap space-x-6 px-10 w-full h-fit'>
             {isFetched && data?.results?.map((item) => (
               <Item key={item.id} content={item} />
             ))}

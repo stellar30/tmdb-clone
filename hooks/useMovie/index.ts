@@ -1,7 +1,8 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query'
 import axios from "axios"
 import type { AxiosError } from 'axios';
-import { MovieDetailParams, MovieDetailRes } from './types';
+import { MovieDetailParams } from './types';
+import { MovieDetailRes } from '@/types/Movie';
 
 export const useQueryMovieDetail = (movie_id: string): UseQueryResult<MovieDetailRes> => {
   return useQuery<any, AxiosError<{ message: string }>, any, any>(
