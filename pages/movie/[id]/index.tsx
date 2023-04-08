@@ -14,6 +14,7 @@ const MovieDetail = () => {
   useEffect(() => {
     if (!router.isReady) return
     setMovieId(router.query.id as string)
+    console.log(router.query.id)
   }, [router.isReady])
 
   const { data } = useQueryMovieDetail(movieId)
